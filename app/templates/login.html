@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Iniciar Sesión</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-icons.css') }}">
+    <!-- Tu CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="bg-light">
+
+    <div class="login-container d-flex justify-content-center align-items-center vh-100">
+        <div class="login-box-wrapper position-relative">
+            <!-- Olas -->
+            <div class="wave wave1"></div>
+            <div class="wave wave2"></div>
+
+            <div class="login-box shadow-lg p-5 rounded bg-white position-relative">
+                <h2 class="text-center mb-4"><i class="bi bi-person-circle"></i></h2>
+                <form method="POST">
+                    {{ form.hidden_tag() }}
+                    <div class="mb-3">
+                        {{ form.email.label(class="form-label fw-bold") }}
+                        {{ form.email(class="form-control form-control-lg") }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.password.label(class="form-label fw-bold") }}
+                        {{ form.password(class="form-control form-control-lg") }}
+                    </div>
+                    <div class="d-grid">
+                        {{ form.submit(class="btn btn-primary btn-lg") }}
+                    </div>
+                    <p class="text-center mt-3">
+                        ¿No tienes cuenta?
+                        <a href="{{ url_for('auth.register') }}">Regístrate aquí</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Bootstrap JS -->
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+</body>
+</html>
+

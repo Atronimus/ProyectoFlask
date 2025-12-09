@@ -1,0 +1,83 @@
+/* Sidebar lateral */
+.sidebar {
+    width: 70px; /* ancho colapsado */
+    height: 100vh;
+    transition: width 0.3s;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* separar top y bottom */
+    align-items: center;
+    padding: 10px 0;
+}
+
+/* Expandido al hover */
+.sidebar:hover {
+    width: 200px;
+    align-items: flex-start;
+}
+
+/* Links del sidebar */
+.sidebar .nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* iconos centrados en colapsado */
+    width: 100%;
+    padding: 15px 0;
+    transition: all 0.3s;
+    box-sizing: border-box;
+}
+
+/* Cuando se expande la barra */
+.sidebar:hover .nav-link {
+    justify-content: flex-start;
+    padding-left: 20px;
+}
+
+/* Texto de los links */
+.sidebar .link-text {
+    margin-left: 10px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.sidebar:hover .link-text {
+    opacity: 1;
+}
+
+/* Hover de los links */
+.sidebar .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+/* Separación vertical fija */
+.top-links, .bottom-links {
+    width: 100%;
+}
+
+.bottom-links {
+    margin-top: auto; /* siempre abajo */
+}
+
+/* Ajuste del contenido principal */
+.content {
+    margin-left: 70px;
+    transition: margin-left 0.3s;
+}
+
+.sidebar:hover ~ .content {
+    margin-left: 200px;
+}
+
+/* Iconos un poco a la derecha en versión colapsada */
+.sidebar .nav-link i {
+    margin-left: 20px; /* ajusta este valor a lo que necesites */
+}
+
+/* Mantener el texto desplazado normalmente al expandir */
+.sidebar:hover .nav-link i {
+    margin-left: 0; /* vuelve al normal cuando se expande */
+}
+

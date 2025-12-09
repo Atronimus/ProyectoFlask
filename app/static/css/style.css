@@ -1,0 +1,146 @@
+/* Fondo general con gradiente animado */
+body {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor de login centrado */
+.login-container,
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh; /* Ocupa toda la ventana */
+    overflow: hidden; /* Evita que las olas deformadas generen scroll */
+}
+
+/* Caja para el formulario del login */
+.login-box {
+    background: #fff;
+    border-radius: 15px;
+    padding: 40px;
+    width: 100%;
+    max-width: 400px;
+    animation: fadeIn 1s ease-in-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.2);
+}
+
+/* Título */
+.login-box h2 {
+    font-weight: bold;
+    color: #1e3c72;
+}
+
+.register-box h2 {
+    font-weight: bold;
+    color: #1e3c72;
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Botón */
+.btn-primary {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    border: none;
+    transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #2a5298, #1e3c72);
+}
+
+/* Links */
+a {
+    color: #1e3c72;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Contenedor para las olas */
+.login-box-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+/* Contenedor para las olas en registro */
+.register-box-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+/* Olas se mantienen igual que en login */
+.register-box-wrapper .wave,
+.register-box-wrapper .wave2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(0deg);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Olas */
+.wave {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 700px;
+    height: 700px;
+    background: rgb(255, 255, 255);
+    border-radius: 40% 60% 60% 40% / 50% 40% 60% 50%;
+    transform: translate(-50%, -50%) rotate(0deg);
+    animation: waveMotion 6s ease-in-out infinite alternate, rotateWave 20s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.wave2 {
+    width: 550px;
+    height: 550px;
+    background: rgb(162, 162, 162);
+    border-radius: 50% 40% 60% 50% / 40% 60% 50% 50%;
+    animation-duration: 8s, 25s;
+}
+
+/* Animación de deformación (simula ola moviéndose) */
+@keyframes waveMotion {
+    0% { border-radius: 40% 60% 60% 40% / 50% 40% 60% 50%; transform: translate(-50%, -50%) rotate(0deg); }
+    25% { border-radius: 50% 50% 40% 60% / 60% 50% 50% 40%; transform: translate(-50%, -50%) rotate(20deg); }
+    50% { border-radius: 60% 40% 50% 50% / 50% 60% 40% 50%; transform: translate(-50%, -50%) rotate(45deg); }
+    75% { border-radius: 50% 60% 40% 50% / 60% 50% 50% 40%; transform: translate(-50%, -50%) rotate(70deg); }
+    100% { border-radius: 40% 60% 60% 40% / 50% 40% 60% 50%; transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Animación de rotación lenta */
+@keyframes rotateWave {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Aseguramos que la caja esté encima */
+.login-box {
+    position: relative;
+    z-index: 1;
+}
+

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Proyecto Flask{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-icons.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css') }}">
+</head>
+<body>
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <nav class="sidebar bg-dark position-fixed d-flex flex-column align-items-center">
+            <ul class="nav flex-column w-100 text-center mt-3 top-links">
+                <li class="nav-item mb-3">
+                    <a href="{{ url_for('auth.dashboard') }}" class="nav-link text-white" title="Dashboard">
+                        <i class="bi bi-house fs-3"></i>
+                        <span class="link-text">Dashboard</span>
+                    </a>
+                </li>
+                <!-- Más links arriba -->
+            </ul>
+
+            <ul class="nav flex-column w-100 text-center bottom-links mb-3">
+                <li class="nav-item">
+                    <a href="{{ url_for('auth.logout') }}" class="nav-link text-white" title="Cerrar Sesión">
+                        <i class="bi bi-box-arrow-left fs-3"></i>
+                        <span class="link-text">Salir</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Contenido principal -->
+        <main class="content flex-grow-1 ms-5 p-4">
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+</body>
+</html>
+
+
+
